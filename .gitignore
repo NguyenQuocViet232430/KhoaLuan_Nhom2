@@ -1,0 +1,47 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Python virtual environments (local to specific machines)
+.venv*/
+venv*/
+env*/
+*/.venv*
+*/venv*
+*/env*
+
+# Node modules & web dependencies
+node_modules/
+*/node_modules/
+*/dist/assets/*.map
+
+# Large dataset caches and raw model checkpoints (>100MB)
+*.h5
+*.ckpt
+*.pt
+*.pth
+*.bin
+*.index
+*.safetensors
+models/
+*/models/
+
+# Large archives exceeding GitHub 100MB limit
+UngDung/Fontend.zip
+UngDung/.venv-level5/
+
+# Temporary / OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# Exceptions (keep research experiment zips)
+!Lv6/Chi_Dung_TriThuc/DungKhoTriThu3QuanHe.zip
+!Lv6/Tan_Dung_RelTR_3Quanhe/01_CHAY_RelTR_BoBa_ChonCaption/Ngoài lề/Tuan11.zip

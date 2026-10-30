@@ -1,0 +1,2 @@
+{"image_id": "1", "diagnosis": {"status": "ground_truth_evaluated", "overall_quality": null, "semantic_consistency": null, "repetition": false, "possible_hallucination": false, "missing_objects": [], "incorrect_objects": [], "issues": [], "ground_truth_available": true}}
+{"image_id": "2", "diagnosis": {"status": "ground_truth_evaluated", "overall_quality": null, "semantic_consistency": null, "repetition": false, "possible_hallucination": false, "missing_objects": [], "incorrect_objects": [], "issues": [], "ground_truth_available": true}}

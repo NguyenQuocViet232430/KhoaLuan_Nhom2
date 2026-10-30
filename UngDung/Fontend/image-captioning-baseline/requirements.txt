@@ -1,0 +1,7 @@
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+python-multipart>=0.0.6
+Pillow>=10.0.0
+numpy>=1.24.0
+
+# Level 5A inference dependencies are in requirements-level5.txt.

@@ -1,0 +1,19 @@
+{
+  "job_id": "job_3c7c0576",
+  "status": "completed",
+  "dataset": "custom",
+  "model_name": "nlpconnect/vit-gpt2-image-captioning",
+  "device": "cpu",
+  "sample_count": 2,
+  "successful_samples": 0,
+  "failed_samples": 2,
+  "metrics": {
+    "bleu": null,
+    "meteor": null,
+    "rouge_l": null,
+    "cider": null,
+    "spice": null
+  },
+  "total_processing_time": 0,
+  "average_processing_time": 0
+}

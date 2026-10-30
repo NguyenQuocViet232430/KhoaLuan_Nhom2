@@ -1,0 +1,18 @@
+{
+  "checkpoint": {
+    "id": "1SrRcYiCnzr3bnEs7aZv0xVMsbY4iFb9K",
+    "sha256": "a708a1c41f98421d6af333a596d30d9c733034bf9ba57bf4484cce2c9357a9e4"
+  },
+  "vocab": {
+    "id": "1FrnEN43-COOQ3XYWu5kqfAZpTQqPWu22",
+    "sha256": "c47a5de5309a21a22a5e9267505c8397781584c49eb29a626a3f8c595b6bdf83"
+  },
+  "embeddings": {
+    "id": "1-eriJH2wm82Fz-jEFrI0zMej521bSUAU",
+    "sha256": "a7d701abb4efbd23ea548b8499785a4fc19a26070a0686d271e0ace17f9db225"
+  },
+  "mapping": {
+    "id": "1huUhetLNK80nqs5JOAd7tP9Wj9PetTAr",
+    "sha256": "91f8a7dd2b70f88ec14c0ab6cc67ec9de2dd2b32062d903d0698801f53b7cf32"
+  }
+}

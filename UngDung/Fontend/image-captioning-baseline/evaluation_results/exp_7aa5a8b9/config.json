@@ -1,0 +1,10 @@
+{
+  "seed": 42,
+  "model_version": "main",
+  "preprocessing_config": "default_vit_processor",
+  "decoding_config": "greedy_search",
+  "retrieval_enabled": false,
+  "ranking_enabled": false,
+  "fusion_enabled": false,
+  "training_config": "not_implemented"
+}

@@ -1,0 +1,79 @@
+{
+  "Bleu_1": 0.743781355611983,
+  "Bleu_2": 0.5799260977550101,
+  "Bleu_3": 0.44487697528596815,
+  "Bleu_4": 0.34167371628100296,
+  "CIDEr": 1.1108751963041645,
+  "METEOR": 0.27288121578132196,
+  "ROUGE_L": 0.555029426842367,
+  "SPICE": 0.20341954243350738,
+  "_meta": {
+    "cache_input_provenance": {
+      "equivalence": "metadata_only_refresh; all model input array bytes unchanged",
+      "historical_file_sha256": {
+        "test": "5df0ac35cf48fa81f1ff67dc97149d7aa4d64a2b9cfeda2a7674f0f56114c097",
+        "train": "722631dc1dd374eb4223211b99d095751c552e9cdfca2a687078bbb9466bb64a",
+        "val": "6a1bca6c0eaff2385b34f81dfc4be4cd9c5f6f9946974626f22a0f6a29c5d518"
+      },
+      "historical_weight_config_hash": "8b90e22fe5ef4d42f3c1c395e0876aef2e1bb3beaadb7a7ef09b8bb44c295b3b",
+      "metadata_change": "Person A added other candidate weights to base config; w0p6_0p4 retrieval and scores unchanged",
+      "metadata_refreshed_file_sha256": {
+        "test": "6619333ebc6e73d5956f393644634d025f9be705a6e9e466175b671d36f6f935",
+        "train": "98d82f6370bf59585526577333d29419c3ceebd678a1b3aca135f58723ed673a",
+        "val": "a3fb79a1f191315ff11e8c4f5ce45e59b4733c49d0dfcf1d9d0595c8021b8139"
+      },
+      "metadata_refreshed_weight_config_hash": "1115e13973de6a5579006c66f1fae625baa2de6cdb22b26549dddee8f371ec30",
+      "observed": {
+        "test": {
+          "file_sha256": "6619333ebc6e73d5956f393644634d025f9be705a6e9e466175b671d36f6f935",
+          "version": "verified_metadata_refresh",
+          "weight_config_hash": "1115e13973de6a5579006c66f1fae625baa2de6cdb22b26549dddee8f371ec30"
+        },
+        "train": {
+          "file_sha256": "98d82f6370bf59585526577333d29419c3ceebd678a1b3aca135f58723ed673a",
+          "version": "verified_metadata_refresh",
+          "weight_config_hash": "1115e13973de6a5579006c66f1fae625baa2de6cdb22b26549dddee8f371ec30"
+        },
+        "val": {
+          "file_sha256": "a3fb79a1f191315ff11e8c4f5ce45e59b4733c49d0dfcf1d9d0595c8021b8139",
+          "version": "verified_metadata_refresh",
+          "weight_config_hash": "1115e13973de6a5579006c66f1fae625baa2de6cdb22b26549dddee8f371ec30"
+        }
+      },
+      "proof": "Replaced only weight_config_hash in RAM; exact historical NPZ SHA-256 reconstructed for train/val/test"
+    },
+    "checkpoint": "/content/drive/.shortcut-targets-by-id/1OCkkcQKlIYTCPLnGgb2y4aTf_VJFE7xQ/Data/baseline_level3/multiseed_beam3_v1/run_af7cc3039da507fc/seed_44/checkpoint_best_seed44.pt",
+    "checkpoint_sha256": "01c06fcc89eb7864043151c5a39e831711dcbeca089571ddc24d96da9657ef18",
+    "decoding": {
+      "alpha": 0.6,
+      "beam_size": 3,
+      "implementation": "normalized_candidates_v1",
+      "mask_pad_bos": true,
+      "max_len": 30,
+      "max_len_includes_bos": true,
+      "method": "beam_search",
+      "precision": "float32",
+      "tf32_enabled": false
+    },
+    "elapsed_seconds_this_session": 718.2931162389996,
+    "environment": {
+      "gpu": "NVIDIA L4",
+      "java": "11",
+      "numpy": "2.1.3",
+      "pycocoevalcap": "1.2",
+      "python": "3.13.15",
+      "torch": "2.11.0+cu130"
+    },
+    "metric_scale": "raw pycocoevalcap scores, no multiplication by 100",
+    "num_images": 5000,
+    "num_references": 25010,
+    "predictions_sha256": "039513b94b723110c25dd5fbb567d49e73ef734cfd01512ea2b427f35e769660",
+    "protocol_hash": "af7cc3039da507fc8550c6e87d757176e8fecf588773b49c73387b7378d4cc98",
+    "role": "metrics",
+    "seed": 44,
+    "signature": "3ff73c8202e1e8dc6148ea673488340fde30ef82c708bdb3b70b30a1ec8839cd",
+    "split": "MS COCO 2014 Karpathy Test",
+    "status": "complete",
+    "storage_schema": 2
+  }
+}

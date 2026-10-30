@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CapAI – Chuẩn đoán hình ảnh</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ======== HEADER / NAVBAR ======== -->
+  <header class="navbar">
+    <div class="navbar-inner">
+      <a href="#" class="logo">🧠 CapAI</a>
+      <nav class="nav-links">
+        <a href="#intro-section">Giới thiệu</a>
+        <a href="#upload-section" class="active">Trải nghiệm</a>
+        <a href="#history-section">Lịch sử</a>
+      </nav>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Mở menu">&#9776;</button>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#intro-section" onclick="closeMobileNav()">Giới thiệu</a>
+      <a href="#upload-section" onclick="closeMobileNav()">Trải nghiệm</a>
+      <a href="#history-section" onclick="closeMobileNav()">Lịch sử</a>
+    </div>
+  </header>
+
+  <main class="main-content">
+
+    <!-- ======== GIỚI THIỆU ======== -->
+    <section id="intro-section" class="card intro-card">
+      <h1>Chuẩn đoán hình ảnh bằng AI</h1>
+      <p class="intro-desc">
+        Hệ thống sử dụng mô hình Truy hồi Tri thức ngữ nghĩa để phân tích hình ảnh và nhận diện các dấu hiệu bất thường một cách chính xác và nhanh chóng.
+      </p>
+      <div class="pipeline">
+        <div class="pipeline-step">
+          <div class="step-icon">📤</div>
+          <div class="step-label">Tải ảnh</div>
+        </div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step">
+          <div class="step-icon">🔍</div>
+          <div class="step-label">Phân tích</div>
+        </div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step">
+          <div class="step-icon">📚</div>
+          <div class="step-label">Truy xuất</div>
+        </div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step">
+          <div class="step-icon">📋</div>
+          <div class="step-label">Kết quả</div>
+        </div>
+      </div>
+      <button class="btn-primary" onclick="document.getElementById('upload-section').scrollIntoView({behavior:'smooth'})">
+        Trải nghiệm ngay →
+      </button>
+    </section>
+
+    <!-- ======== UPLOAD ======== -->
+    <section id="upload-section" class="card">
+      <h2 class="section-title">Tải ảnh để chuẩn đoán</h2>
+
+      <div class="drop-zone" id="dropZone">
+        <input type="file" id="fileInput" accept="image/*" hidden />
+        <div class="drop-zone-icon">☁️</div>
+        <p class="drop-zone-title">Kéo thả hoặc click để chọn ảnh</p>
+        <p class="drop-zone-sub">Hỗ trợ JPG, PNG, WEBP · Tối đa 10MB</p>
+      </div>
+
+      <div class="upload-error" id="uploadError"></div>
+    </section>
+
+    <!-- ======== LOADING ======== -->
+    <section id="loading-section" class="card hidden">
+      <div class="loading-box">
+        <div class="spinner"></div>
+        <p class="loading-text">AI đang phân tích dữ liệu, vui lòng đợi...</p>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== KẾT QUẢ ======== -->
+    <section id="result-section" class="card hidden">
+      <h2 class="section-title">Kết quả Chuẩn đoán</h2>
+      <div class="result-grid">
+        <div class="result-img-wrap">
+          <img id="previewImg" src="" alt="Ảnh đã tải lên" class="result-img" />
+        </div>
+        <div class="result-info">
+          <div class="diagnosis-box">
+            <span class="diagnosis-badge">✅ Chuẩn đoán hoàn tất</span>
+            <p id="diagnosisText" class="diagnosis-text"></p>
+          </div>
+
+          <div class="knowledge-block">
+            <h3 class="knowledge-title">Dấu hiệu nhận biết</h3>
+            <div class="tag-list" id="tagList"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="result-actions">
+        <button class="btn-secondary" id="retryBtn">🔄 Thử ảnh khác</button>
+      </div>
+    </section>
+
+    <!-- ======== LỊCH SỬ ======== -->
+    <section id="history-section" class="card">
+      <div class="history-header">
+        <h2 class="section-title" style="margin:0">Lịch sử thực nghiệm</h2>
+        <button class="btn-danger-outline" id="clearHistoryBtn">🗑 Xoá tất cả</button>
+      </div>
+      <div id="historyGrid" class="history-grid"></div>
+      <div id="historyEmpty" class="history-empty hidden">
+        <p>⚠️ Chưa có dữ liệu. Hãy thử chuẩn đoán một ảnh ở trên!</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======== TOAST ======== -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

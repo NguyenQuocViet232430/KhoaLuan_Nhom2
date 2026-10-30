@@ -1,0 +1,6 @@
+{
+  "checkpoint": {"id": "PASTE_SEED46_BEST_MODEL_FILE_ID"},
+  "vocab": {"id": "PASTE_TRAINING_VOCAB_FILE_ID"},
+  "embeddings": {"id": "PASTE_TEXT_EMBEDDINGS_TRAIN_RESTVAL_FILE_ID"},
+  "mapping": {"id": "PASTE_TEXT_EMBEDDING_MAPPING_FILE_ID"}
+}

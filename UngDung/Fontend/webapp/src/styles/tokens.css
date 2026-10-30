@@ -1,0 +1,50 @@
+/* Edit these tokens to change the appearance. All surfaces use neutral grays.
+   Accent is reserved for primary actions, selection and keyboard focus.
+   Muted text: #626262 on white (6.10:1); #a6a6a6 on #171717 (7.36:1). */
+:root {
+  color-scheme: light;
+  --color-page: #ffffff;
+  --color-sidebar: #fafafa;
+  --color-surface: #f5f5f5;
+  --color-hover: #ededed;
+  --color-text: #202020;
+  --color-muted: #626262;
+  --color-border: #dedede;
+  --color-accent: #245bd6;
+  --color-accent-hover: #1c4bbb;
+  --color-selected: #edf2ff;
+  --color-on-accent: #ffffff;
+  --color-bar: #777777;
+  --font-sans: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body: 15px;
+  --font-caption: 13px;
+  --font-page-title: 28px;
+  --font-result: 24px;
+  --radius: 8px;
+  --sidebar-width: 236px;
+  --content-width: 1180px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --shadow: none;
+}
+:root.dark {
+  color-scheme: dark;
+  --color-page: #171717;
+  --color-sidebar: #1c1c1c;
+  --color-surface: #222222;
+  --color-hover: #2b2b2b;
+  --color-text: #eeeeee;
+  --color-muted: #a6a6a6;
+  --color-border: #383838;
+  --color-accent: #9ab5ff;
+  --color-accent-hover: #b4c8ff;
+  --color-selected: #252e43;
+  --color-on-accent: #17223d;
+  --color-bar: #a6a6a6;
+}
+

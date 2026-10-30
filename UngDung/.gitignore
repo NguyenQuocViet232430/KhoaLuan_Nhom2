@@ -1,0 +1,8 @@
+.venv-level5/
+.test-deps/
+models/level5/*
+!models/level5/.gitkeep
+models/reltr/
+logs/
+**/__pycache__/
+**/.pytest_cache/

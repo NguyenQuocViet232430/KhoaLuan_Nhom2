@@ -1,0 +1,2 @@
+{"image_id": "1", "image_path": "test_images/test.jpg", "prediction": "A red and white flag on a red and white flag.", "references": ["A red and white flag on a red and white flag.", "A flag with red and white colors."], "processing_time": 1.117685317993164, "success": true, "error": null}
+{"image_id": "2", "image_path": "test_images/test.jpg", "prediction": "A red and white flag on a red and white flag.", "references": ["A red and white flag.", "The flag is red and white."], "processing_time": 0.8977618217468262, "success": true, "error": null}

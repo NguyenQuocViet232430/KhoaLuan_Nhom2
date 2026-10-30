@@ -1,0 +1,33 @@
+{
+  "experiment_id": "exp_fd152322",
+  "status": "completed",
+  "dataset": "custom",
+  "model_name": "nlpconnect/vit-gpt2-image-captioning",
+  "device": "cpu",
+  "sample_count": 2,
+  "successful_samples": 2,
+  "failed_samples": 0,
+  "metrics": {
+    "bleu_1": 0.7727272727272727,
+    "bleu_2": 0.7354652207338501,
+    "bleu_3": 0.7142017287779143,
+    "bleu_4": 0.6890143384595325,
+    "meteor": null,
+    "rouge_l": 0.8125,
+    "cider": null,
+    "spice": null
+  },
+  "total_processing_time": 3.1313140392303467,
+  "average_processing_time": 1.5656570196151733,
+  "generated_at": "2026-08-24T07:31:53.786695Z",
+  "configuration": {
+    "seed": 42,
+    "model_version": "main",
+    "preprocessing_config": "default_vit_processor",
+    "decoding_config": "greedy_search",
+    "retrieval_enabled": false,
+    "ranking_enabled": false,
+    "fusion_enabled": false,
+    "training_config": "not_implemented"
+  }
+}

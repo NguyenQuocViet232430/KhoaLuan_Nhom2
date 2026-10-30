@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="appName">CapAI - Image Captioning Research Platform</title>
+  <meta name="description" content="Nghiên cứu pipeline sinh mô tả ảnh dựa trên ViT-GPT2, đánh giá trên các bộ dữ liệu chuẩn và phân tích lỗi.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="#" class="logo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <circle cx="8.5" cy="8.5" r="1.5"></circle>
+          <polyline points="21 15 16 10 5 21"></polyline>
+        </svg>
+        <span>CapAI</span>
+        <span class="logo-badge" data-i18n="badgeResearch">Research</span>
+      </a>
+      
+      <nav class="nav-menu" id="navMenu">
+        <a href="#hero" class="nav-link" data-i18n="navIntro">Giới thiệu</a>
+        <a href="#pipeline-section" class="nav-link" data-i18n="navPipeline">Pipeline</a>
+        <a href="#upload-section" class="nav-link" data-i18n="navDemo">Live Demo</a>
+        <a href="#research-eval" class="nav-link" data-i18n="navEval">Evaluation</a>
+        <a href="#ablation-section" class="nav-link" data-i18n="navAblation">Ablation</a>
+        
+        <div class="lang-switcher">
+            <button id="langVi" class="active" aria-label="Vietnamese">VI</button>
+            <span class="lang-sep">|</span>
+            <button id="langEn" aria-label="English">EN</button>
+        </div>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="hero">
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <span class="badge fade-in-up" data-i18n="heroBadge">IMAGE CAPTIONING RESEARCH</span>
+          <h1 class="hero-title fade-in-up" data-i18n="heroTitle">Thực nghiệm và đánh giá<br>mô hình Image Captioning</h1>
+          <p class="hero-subtitle fade-in-up" data-i18n="heroSubtitle">Nghiên cứu pipeline sinh mô tả ảnh dựa trên ViT-GPT2, đánh giá trên các bộ dữ liệu chuẩn và phân tích lỗi, đồng thời xây dựng nền tảng mở rộng cho Knowledge Augmentation.</p>
+          
+          <div class="hero-actions fade-in-up">
+            <a href="#upload-section" class="btn btn-primary" data-i18n="btnLiveDemo">Live Demo &rarr;</a>
+            <a href="#pipeline-section" class="btn btn-secondary" data-i18n="btnResearchPipeline">Research Pipeline</a>
+          </div>
+        </div>
+        
+        <div class="hero-visual fade-in-up">
+          <div class="hero-card" id="heroCard">
+            <div class="hc-img-wrapper">
+              <span class="sample-label" id="demoImgLabel" data-i18n="demoImgLabel">Example Input — UI Demonstration Only</span>
+              <img id="demoImg" src="/assets/sample-landscape.jpg" alt="Sample Landscape — UI demo only">
+            </div>
+            <div class="hc-body">
+              <div class="hc-title"><span data-i18n="aiAnalysisPreview">AI Analysis Preview</span></div>
+              <ul class="hc-list">
+                <li id="statusUpload"><span class="check check-done">✓</span> <span data-i18n="statusImgReady">Image ready</span></li>
+                <li id="statusAnalysis" class="pending"><span class="check">○</span> <span data-i18n="statusModelInf">Model inference</span></li>
+                <li id="statusCaption" class="pending"><span class="check">○</span> <span data-i18n="statusCapGen">Caption generated</span></li>
+              </ul>
+              <div class="hc-caption" id="demoCaption" data-i18n="uploadPrompt">
+                Upload an image to run real inference.
+              </div>
+              <div class="hc-meta" id="demoTime">Processing time: —</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== RESEARCH PIPELINE ARCHITECTURE ===== -->
+    <section class="pipeline-arch-section" id="pipeline-section">
+      <div class="container">
+        <div class="section-header center">
+          <h2 data-i18n="pipelineTitle">RESEARCH PIPELINE ARCHITECTURE</h2>
+          <p data-i18n="pipelineDesc">Kiến trúc hệ thống phục vụ thực nghiệm, đánh giá và mở rộng mô hình Image Captioning.</p>
+        </div>
+
+        <div class="pipeline-grid">
+          <!-- CARD 01 -->
+          <div class="phase-card">
+            <div class="phase-header">
+              <div class="phase-num">01</div>
+              <div class="phase-meta">
+                <h3 data-i18n="card1Title">Image Preprocessing</h3>
+                <span class="status-badge badge-completed">COMPLETED</span>
+              </div>
+            </div>
+            <p class="phase-desc" data-i18n="card1Desc">Chuẩn hóa và tiền xử lý hình ảnh trước khi đưa vào mô hình thị giác.</p>
+          </div>
+
+          <!-- CARD 02 -->
+          <div class="phase-card">
+            <div class="phase-header">
+              <div class="phase-num">02</div>
+              <div class="phase-meta">
+                <h3 data-i18n="card2Title">ViT-GPT2 Inference</h3>
+                <span class="status-badge badge-completed">COMPLETED</span>
+              </div>
+            </div>
+            <p class="phase-desc" data-i18n="card2Desc">Sử dụng mô hình pretrained ViT-GPT2 để sinh caption ban đầu.</p>
+          </div>
+
+          <!-- CARD 03 -->
+          <div class="phase-card">
+            <div class="phase-header">
+              <div class="phase-num">03</div>
+              <div class="phase-meta">
+                <h3 data-i18n="card3Title">Initial Caption</h3>
+                <span class="status-badge badge-completed">COMPLETED</span>
+              </div>
+            </div>
+            <p class="phase-desc" data-i18n="card3Desc">Nhận caption đầu tiên từ mô hình và trích xuất các thông tin liên quan.</p>
+          </div>
+
+          <!-- CARD 04 -->
+          <div class="phase-card">
+            <div class="phase-header">
+              <div class="phase-num">04</div>
+              <div class="phase-meta">
+                <h3 data-i18n="card4Title">Caption Analysis</h3>
+                <span class="status-badge badge-completed">COMPLETED</span>
+              </div>
+            </div>
+            <p class="phase-desc" data-i18n="card4Desc">Phân tích caption và trích xuất keywords.</p>
+          </div>
+
+          <!-- CARD 05 -->
+          <div class="phase-card">
+            <div class="phase-header">
+              <div class="phase-num">05</div>
+              <div class="phase-meta">
+                <h3 data-i18n="card5Title">Evaluation & Diagnosis</h3>
+                <span class="status-badge badge-ready">READY</span>
+              </div>
+            </div>
+            <p class="phase-desc" data-i18n="card5Desc">So sánh caption với ground-truth khi dataset được cấu hình và thực hiện phân tích lỗi.</p>
+          </div>
+
+          <!-- CARD 06 -->
+          <div class="phase-card">
+            <div class="phase-header">
+              <div class="phase-num">06</div>
+              <div class="phase-meta">
+                <h3 data-i18n="card6Title">Research Extensions</h3>
+                <span class="status-badge badge-planned">PLANNED</span>
+              </div>
+            </div>
+            <p class="phase-desc" data-i18n="card6Desc">Kiến trúc mở rộng cho Knowledge Retrieval, Ranking, Fusion, Training/Fine-tuning và Ablation Study.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LIVE DEMO (UPLOAD) ===== -->
+    <section class="upload-section" id="upload-section">
+      <div class="container">
+        <div class="section-header center">
+          <h2 data-i18n="demoTitle">Phân tích hình ảnh</h2>
+          <p data-i18n="demoDesc">Tải lên hình ảnh và tạo mô tả bằng mô hình ViT-GPT2.</p>
+        </div>
+
+        <!-- Backend Status -->
+        <div class="backend-status" id="backendStatus">
+          <span class="status-dot loading" id="statusDot"></span>
+          <span class="status-text" id="statusText" data-i18n="checkingBackend">Đang kiểm tra Backend...</span>
+          <button class="btn-retry hidden" id="retryBtn" data-i18n="btnRetry">Thử lại</button>
+        </div>
+
+        <div class="upload-card">
+          <div class="dropzone" id="dropzone" tabindex="0">
+            <input type="file" id="fileInput" accept="image/jpeg, image/png, image/jpg" hidden>
+            <div class="dz-content" id="dzContent">
+              <div class="dz-icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="17 8 12 3 7 8"></polyline>
+                  <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+              </div>
+              <p class="dz-title" data-i18n="dzTitle">Kéo & thả hình ảnh vào đây</p>
+              <p class="dz-sub" data-i18n="dzSub">hoặc <span>Click để chọn file</span></p>
+              <p class="dz-hint" data-i18n="dzHint">JPG · JPEG · PNG · Tối đa 10MB</p>
+            </div>
+            <div class="dz-preview hidden" id="dzPreview">
+              <img src="" alt="Preview" id="previewImg">
+            </div>
+          </div>
+          
+          <div class="upload-actions hidden" id="uploadActions">
+            <button class="btn btn-secondary" id="changeImgBtn" data-i18n="btnChangeImg">Thay đổi ảnh</button>
+            <button class="btn btn-primary" id="analyzeBtn" data-i18n="btnAnalyze">Phân tích hình ảnh</button>
+          </div>
+
+          <div class="error-banner hidden" id="errorBanner"></div>
+          <div class="loading-state hidden" id="loadingState">
+            <div class="spinner"></div>
+            <p data-i18n="lblAnalyzing">ViT-GPT2 đang phân tích hình ảnh...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== RESULT SECTION ===== -->
+    <section class="result-section hidden" id="result-section">
+      <div class="container">
+        <div class="result-card">
+          <div class="res-col-left">
+            <img src="" alt="Analyzed Result" id="resultImgDisplay">
+          </div>
+          <div class="res-col-right">
+            <div class="res-header">
+              <h3 class="res-title" data-i18n="lblGenCap">GENERATED CAPTION</h3>
+              <button class="btn-copy" id="copyBtn" aria-label="Copy caption">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span id="copyText" data-i18n="btnCopy">Copy Caption</span>
+              </button>
+            </div>
+            
+            <blockquote class="res-caption" id="resCaptionText"></blockquote>
+            
+            <div class="res-keywords hidden" id="resKeywordsWrap">
+              <h4 data-i18n="lblCapKw">Caption Keywords</h4>
+              <div class="kw-list" id="resKeywordsList"></div>
+            </div>
+
+            <div class="res-meta">
+              <div class="meta-box"><span class="m-label">Model</span><span class="m-val" id="metaModel">ViT-GPT2</span></div>
+              <div class="meta-box"><span class="m-label" data-i18n="lblProcTime">Processing Time</span><span class="m-val" id="metaTime">0.00s</span></div>
+            </div>
+
+            <!-- RESEARCH PIPELINE STATUS -->
+            <div class="research-panel roadmap-panel" id="researchStatusPanel">
+              <h4 data-i18n="lblResearchStatus">RESEARCH STATUS</h4>
+              <ul class="pipeline-list roadmap-list">
+                <li class="pl-item roadmap-item completed">
+                  <div class="pl-text">
+                    <strong data-i18n="phase1">Phase 1 — Baseline ViT-GPT2</strong>
+                    <span class="badge completed-badge">COMPLETED</span>
+                  </div>
+                </li>
+                <li class="pl-item roadmap-item completed">
+                  <div class="pl-text">
+                    <strong data-i18n="phase15">Phase 1.5 — Evaluation & Diagnosis</strong>
+                    <span class="badge completed-badge">COMPLETED / READY</span>
+                  </div>
+                </li>
+                <li class="pl-item roadmap-item ready">
+                  <div class="pl-text">
+                    <strong data-i18n="phase2">Phase 2 — Batch Evaluation</strong>
+                    <span class="badge ready-badge">READY</span>
+                  </div>
+                </li>
+                <li class="pl-item roadmap-item disabled">
+                  <div class="pl-text">
+                    <strong data-i18n="phase3">Phase 3 — MS COCO / Flickr30K Benchmark</strong>
+                    <span class="badge disabled-badge">NOT CONFIGURED</span>
+                  </div>
+                </li>
+                <li class="pl-item roadmap-item planned">
+                  <div class="pl-text">
+                    <strong data-i18n="phase4">Phase 4 — Knowledge Retrieval</strong>
+                    <span class="badge planned-badge">PLANNED</span>
+                  </div>
+                </li>
+                <li class="pl-item roadmap-item planned">
+                  <div class="pl-text">
+                    <strong data-i18n="phase5">Phase 5 — Ranking & Fusion</strong>
+                    <span class="badge planned-badge">PLANNED</span>
+                  </div>
+                </li>
+                <li class="pl-item roadmap-item planned">
+                  <div class="pl-text">
+                    <strong data-i18n="phase6">Phase 6 — Training / Fine-tuning</strong>
+                    <span class="badge planned-badge">PLANNED</span>
+                  </div>
+                </li>
+                <li class="pl-item roadmap-item ready">
+                  <div class="pl-text">
+                    <strong data-i18n="phase7">Phase 7 — Ablation Study</strong>
+                    <span class="badge ready-badge">FRAMEWORK ONLY</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="res-footer">
+              <button class="btn btn-secondary w-full" id="analyzeAgainBtn" data-i18n="btnAnalyzeAnother">Analyze Another Image</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== RESEARCH EVALUATION SECTION ===== -->
+    <section class="research-eval-section" id="research-eval">
+      <div class="container">
+        <div class="section-header center">
+          <h2 data-i18n="lblEvalDash">RESEARCH EVALUATION</h2>
+          <p data-i18n="lblEvalDesc">Chạy inference trên tập dữ liệu và đánh giá định lượng.</p>
+        </div>
+        <div class="eval-dashboard">
+          <div class="eval-controls" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="form-group">
+                  <label data-i18n="lblDataset">Dataset</label>
+                  <select id="evalDatasetSelect" class="form-control">
+                      <option value="custom">Custom JSON</option>
+                      <option value="mscoco">MS COCO</option>
+                      <option value="flickr30k">Flickr30K</option>
+                  </select>
+                  <div id="datasetConfigStatus" style="font-size: 0.8rem; margin-top: 4px; color: var(--text-sec);">Checking status...</div>
+              </div>
+              <div class="form-group">
+                  <label>Sample Limit (Blank for full)</label>
+                  <input type="number" id="evalLimitInput" class="form-control" placeholder="e.g. 100">
+              </div>
+              <div class="form-group">
+                  <label>Batch Size</label>
+                  <input type="number" id="evalBatchSize" class="form-control" placeholder="1" disabled value="1" title="Currently fixed to 1 for this pipeline version">
+              </div>
+              <div class="form-group" style="align-self: flex-end;">
+                  <button class="btn btn-primary" id="runEvalBtn" data-i18n="btnRunEval">Run Evaluation</button>
+                  <button class="btn btn-secondary hidden" id="cancelEvalBtn" data-i18n="btnCancel">Cancel</button>
+              </div>
+          </div>
+          
+          <div class="eval-progress hidden" id="evalProgressContainer">
+              <div class="progress-header">
+                  <span id="evalStatusText">Running...</span>
+                  <span id="evalCountText">0 / 0</span>
+              </div>
+              <div class="progress-bar-wrap">
+                  <div class="progress-bar" id="evalProgressBar" style="width: 0%;"></div>
+              </div>
+          </div>
+          
+          <div class="research-panel hidden" id="evalResultsPanel" style="margin-top: 24px;">
+            <h4 data-i18n="lblEvalResults">Batch Evaluation Results</h4>
+            <div class="res-meta" style="margin-bottom: 24px;">
+              <div class="meta-box"><span class="m-label">BLEU-1</span><span class="m-val" id="batchBleu1">—</span></div>
+              <div class="meta-box"><span class="m-label">BLEU-2</span><span class="m-val" id="batchBleu2">—</span></div>
+              <div class="meta-box"><span class="m-label">BLEU-3</span><span class="m-val" id="batchBleu3">—</span></div>
+              <div class="meta-box"><span class="m-label">BLEU-4</span><span class="m-val" id="batchBleu4">—</span></div>
+              <div class="meta-box"><span class="m-label">METEOR</span><span class="m-val" id="batchMeteor">—</span></div>
+              <div class="meta-box"><span class="m-label">ROUGE-L</span><span class="m-val" id="batchRouge">—</span></div>
+              <div class="meta-box"><span class="m-label">CIDEr</span><span class="m-val" id="batchCider">—</span></div>
+              <div class="meta-box"><span class="m-label">SPICE</span><span class="m-val" id="batchSpice">—</span></div>
+            </div>
+            
+            <h4 style="margin-top: 32px; margin-bottom: 16px; border-bottom: 1px solid var(--border); padding-bottom: 8px;" data-i18n="lblErrorAnalysis">ERROR ANALYSIS</h4>
+            <div id="errorAnalysisContainer">
+              <div class="empty-state-msg" data-i18n="lblNoErrors">Run a dataset evaluation to generate error analysis.</div>
+            </div>
+
+            <h4 style="margin-top: 32px; margin-bottom: 16px; border-bottom: 1px solid var(--border); padding-bottom: 8px;" data-i18n="lblQualitative">QUALITATIVE RESULTS</h4>
+            <div id="qualitativeResultsContainer">
+              <div class="empty-state-msg" data-i18n="lblNoQualitative">Run a dataset evaluation to see sample predictions.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DIAGNOSIS DASHBOARD ===== -->
+    <section class="research-eval-section" id="diagnosis-section" style="padding-top: 0;">
+      <div class="container">
+        <div class="eval-dashboard">
+          <div class="section-header center">
+            <h2 data-i18n="lblDiagDash">CAPTION DIAGNOSIS</h2>
+          </div>
+          <div class="res-meta" style="margin-top: 12px;">
+                <div class="meta-box">
+                  <span class="m-label">Diagnosis Mode</span>
+                  <span class="m-val" id="diagModeBadge">—</span>
+                </div>
+                <div class="meta-box">
+                  <span class="m-label">Repetition</span>
+                  <span class="m-val" id="diagRepetition">—</span>
+                </div>
+                <div class="meta-box">
+                  <span class="m-label">Possible Hallucination</span>
+                  <span class="m-val" id="diagHallucination">—</span>
+                </div>
+                <div class="meta-box full-width">
+                  <span class="m-label">Semantic Consistency</span>
+                  <span class="m-val" id="diagSemantic">—</span>
+                </div>
+                <div class="meta-box full-width">
+                  <span class="m-label">Missing Concepts</span>
+                  <span class="m-val" id="diagMissing">—</span>
+                </div>
+                <div class="meta-box full-width">
+                  <span class="m-label">Incorrect Concepts</span>
+                  <span class="m-val" id="diagIncorrect">—</span>
+                </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABLATION STUDY SECTION ===== -->
+    <section class="ablation-section" id="ablation-section">
+      <div class="container">
+        <div class="section-header center">
+          <h2 data-i18n="lblAblation">ABLATION STUDY</h2>
+          <p data-i18n="lblAblationDesc">So sánh các cấu hình thực nghiệm.</p>
+        </div>
+
+        <div class="ablation-table-wrap">
+          <table class="ablation-table" id="ablationTable">
+            <thead>
+              <tr>
+                <th>Experiment</th>
+                <th>BLEU-1</th>
+                <th>BLEU-2</th>
+                <th>BLEU-3</th>
+                <th>BLEU-4</th>
+                <th>METEOR</th>
+                <th>CIDEr</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>EXP_BASELINE</td>
+                <td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td>
+              </tr>
+              <tr>
+                <td>EXP_RETRIEVAL</td>
+                <td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td>
+              </tr>
+              <tr>
+                <td>EXP_RANKING</td>
+                <td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td>
+              </tr>
+              <tr>
+                <td>EXP_FUSION</td>
+                <td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+{"image_id": "1", "success": false, "error": "'ViTGPT2Captioner' object has no attribute 'generate_caption'"}
+{"image_id": "2", "success": false, "error": "'ViTGPT2Captioner' object has no attribute 'generate_caption'"}

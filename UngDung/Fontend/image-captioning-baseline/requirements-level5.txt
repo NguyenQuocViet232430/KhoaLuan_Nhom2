@@ -1,0 +1,9 @@
+# Python 3.11/3.12 recommended. Install the chosen torch/torchvision pair first.
+-r requirements.txt
+torch>=2.6,<3
+torchvision>=0.21,<1
+faiss-cpu>=1.10,<2
+git+https://github.com/openai/CLIP.git@d05afc436d78f1c48dc0dbf8e5980a9d471f35f6
+nltk>=3.9,<4
+gdown>=5.2,<7
+# Optional RelTR dependency: scipy
